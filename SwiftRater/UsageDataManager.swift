@@ -23,6 +23,7 @@ class UsageDataManager {
 
     var showLaterButton: Bool = true
     var debugMode: Bool = false
+    var conditionsMetMode: SwiftRaterConditionsMetMode = .all
 
     static private let keySwiftRaterFirstUseDate = "keySwiftRaterFirstUseDate"
     static private let keySwiftRaterUseCount = "keySwiftRaterUseCount"
@@ -122,14 +123,18 @@ class UsageDataManager {
             printMessage(message: " Already rated")
             return false }
 
+        var daysUntilPromptMet = false
+        var usesUntilPromptMet = false
+        var significantUsesUntilPromptMet = false
+
         if reminderRequestToRate == 0 {
             // check if the app has been used enough days
             if daysUntilPrompt != SwiftRaterInvalid {
                 printMessage(message: " will check daysUntilPrompt")
                 let dateOfFirstLaunch = Date(timeIntervalSince1970: firstUseDate)
                 let timeSinceFirstLaunch = Date().timeIntervalSince(dateOfFirstLaunch)
-                let timeUntilRate = 60 * 60 * 24 * daysUntilPrompt;
-                guard Int(timeSinceFirstLaunch) < timeUntilRate else { return true }
+                let timeUntilRate = 60 * 60 * 24 * daysUntilPrompt
+                daysUntilPromptMet = Int(timeSinceFirstLaunch) > timeUntilRate
             }
 
             // check if the app has been used enough times
