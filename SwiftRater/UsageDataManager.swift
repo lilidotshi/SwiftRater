@@ -23,7 +23,6 @@ class UsageDataManager {
 
     var showLaterButton: Bool = true
     var debugMode: Bool = false
-    var conditionsMetMode: SwiftRaterConditionsMetMode = .all
 
     static private let keySwiftRaterFirstUseDate = "keySwiftRaterFirstUseDate"
     static private let keySwiftRaterUseCount = "keySwiftRaterUseCount"

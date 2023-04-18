@@ -70,15 +70,6 @@ import StoreKit
         }
     }
 
-    @objc public static var conditionsMetMode: SwiftRaterConditionsMetMode {
-        get {
-            return UsageDataManager.shared.conditionsMetMode
-        }
-        set {
-            UsageDataManager.shared.conditionsMetMode = newValue
-        }
-    }
-
     @objc public static var useStoreKitIfAvailable: Bool = true
 
     @objc public static var showLaterButton: Bool = true
