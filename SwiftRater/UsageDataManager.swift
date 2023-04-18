@@ -123,10 +123,6 @@ class UsageDataManager {
             printMessage(message: " Already rated")
             return false }
 
-        var daysUntilPromptMet = false
-        var usesUntilPromptMet = false
-        var significantUsesUntilPromptMet = false
-
         if reminderRequestToRate == 0 {
             // check if the app has been used enough days
             if daysUntilPrompt != SwiftRaterInvalid {
