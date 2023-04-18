@@ -133,8 +133,8 @@ class UsageDataManager {
                 printMessage(message: " will check daysUntilPrompt")
                 let dateOfFirstLaunch = Date(timeIntervalSince1970: firstUseDate)
                 let timeSinceFirstLaunch = Date().timeIntervalSince(dateOfFirstLaunch)
-                let timeUntilRate = 60 * 60 * 24 * daysUntilPrompt
-                daysUntilPromptMet = Int(timeSinceFirstLaunch) > timeUntilRate
+                let timeUntilRate = 60 * 60 * 24 * daysUntilPrompt;
+                guard Int(timeSinceFirstLaunch) < timeUntilRate else { return true }
             }
 
             // check if the app has been used enough times
