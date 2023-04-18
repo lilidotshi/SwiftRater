@@ -13,11 +13,6 @@ import AppKit
 #endif
 import StoreKit
 
-@objc public enum SwiftRaterConditionsMetMode: Int {
-    case all
-    case any
-}
-
 @objc public class SwiftRater: NSObject {
 
     enum ButtonIndex: Int {
